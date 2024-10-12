@@ -15,7 +15,6 @@ from pathlib import Path
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
-
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
 
@@ -58,7 +57,7 @@ from pathlib import Path
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'home', 'templates')],
+        'DIRS': [os.path.join(BASE_DIR, 'menu', 'templates')],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -128,4 +127,4 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Si estás en modo de desarrollo dejar la linea
 import os
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'home/static')]
+STATICFILES_DIRS = [os.path.join(BASE_DIR, 'menu/static')]
