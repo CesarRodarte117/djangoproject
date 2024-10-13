@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -36,6 +37,19 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'login',
+    'menu',
+    'register',
+    'about_us',
+    'cart',
+    'contact',
+    'media',
+    'pay',
+    'product',
+    'recycler',
+    'shipping',
+    'supplier',
+    'static',
 ]
 
 MIDDLEWARE = [
@@ -51,14 +65,13 @@ MIDDLEWARE = [
 ROOT_URLCONF = 'SolidSteel.urls'
 
 
-import os
-from pathlib import Path
-
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [os.path.join(BASE_DIR, 'menu', 'templates')],
-        'APP_DIRS': True,
+        'DIRS': [
+            os.path.join(BASE_DIR, 'templates'),  # Ruta para plantillas generales
+        ],
+        'APP_DIRS': True,  # Permite buscar plantillas en las carpetas de cada app
         'OPTIONS': {
             'context_processors': [
                 'django.template.context_processors.debug',
@@ -115,16 +128,16 @@ USE_I18N = True
 USE_TZ = True
 
 
-# Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+# Static files (CSS, JavaScript, Images)
 STATIC_URL = '/static/'
 
+# Static files directories
+STATICFILES_DIRS = [
+    BASE_DIR / "static",  # Carpeta general para archivos estáticos
+]
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-
-# Si estás en modo de desarrollo dejar la linea
-import os
-STATICFILES_DIRS = [os.path.join(BASE_DIR, 'menu/static')]
